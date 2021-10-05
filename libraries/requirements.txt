@@ -1,8 +1,0 @@
-requests
-pillow
-tkinter
-json
-urllib
-xml
-datetime
-cpython
