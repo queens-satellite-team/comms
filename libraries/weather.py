@@ -86,7 +86,7 @@ def _call_gov_weather_api(url_extension) -> req.Request:
         return None
     return request
 
-def get_gov_weather_by_station(id) -> Dict[str:str]:
+def get_gov_weather_by_station(id):
     """
         breif: populates the weather_data dictionary with data provided from the given airport station ID. 
         return: weather_data    - a copy of the weather_data dictionary or None if problem with request.   
