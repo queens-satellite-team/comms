@@ -26,7 +26,7 @@ A [link budget](https://en.wikipedia.org/wiki/Link_budget) is a design tool, dev
 - [Carrier Signal/Wave](https://en.wikipedia.org/wiki/Carrier_wave): a waveform that is modulated (modified) with an information-bearing signal for the purpose of conveying information. This carrier wave usually has a much higher frequency than the input signal does. The purpose of the carrier is to transmit the information through space.
 
 # Section 1: What Are We Trying To Do? 
-At the end of the day, we are trying to determine the minimum amount of output power required at the transmitter for a given signal strength at the receiver. By creating a link budget, we will know whether we have enough power and gain in the transmission, enabling us to take action if the levels are too high or too low. If you don’t have enough power and gain, we will have a weak signal. If we have too much power and gain, we may be able to switch to a less powerful antenna or reduce your total transmission power, which can save money and energy. 
+At the end of the day, we are trying to determine the minimum amount of output power required at the transmitter for a given signal strength at the receiver. By creating a link budget, we will know whether we have enough power and gain in the transmission, enabling us to take action if the levels are too high or too low. If you don’t have enough power and gain, we will have a weak signal and it will not be able to be discerned from the ambient noise around us. If we have too much power and gain, we may be able to switch to a smaller / less powerful antenna or reduce your total transmission power, which can save money and energy. 
 
 To perform an accurate calculation, we’ll need to consider all of the gains and losses involved in a particular link. The total calculation should include the following at a minimum:
 - Transmitted power
@@ -40,7 +40,7 @@ To perform an accurate calculation, we’ll need to consider all of the gains an
 Based on these factors, a basic link budget equation may read as follows:
 
 <p align='center'>
-🌟 signal strength = transmitted power + gains – losses 🌟 
+🌟 signal received = (transmitted power + gains – losses) / (background-noise) 🌟 
 </p>
 
 We can organize all these different gains and losses in a table for **both** of the **downlink** and **uplink** communication channels to completely characterize our communication link.  
@@ -164,3 +164,4 @@ Okay, so how do we go about finding the values and equations to be used in all t
 
 - [CAN-SBX Link Budget](https://queensuca.sharepoint.com/:x:/t/GROUP-QSET/EXgS7Tc93c9LmauqfWks098BMDNnGnvrHXVt8gIhve7oLg?e=LhSWYF)
 - [SMAD - Communication Architecture](https://queensuca.sharepoint.com/:b:/t/GROUP-QSET/EetrWtbsPE9Mr-KgKMFOANgBPXy5Lkg9ayXt6OVcL1NoDA?e=N3Y3Kt)
+- [The Jan King Link Budget Spread Sheets](http://www.amsatuk.me.uk/iaru/spreadsheet.htm)
