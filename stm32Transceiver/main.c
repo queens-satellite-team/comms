@@ -15,8 +15,6 @@
   *
   ******************************************************************************
   */
-
-// #pragma warning(disable:) // use this to "fix" the warnings if they get annoying. Enter the warning code after disable:
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -24,44 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "string.h"
-
 #include "NRF24L01.h"
-/* COMMANDS FROM NRF DRIVER:
- * void CS_Select (void)
- * 		-- Pulls CS down
- * void CS_UnSelect (void)
- * 		-- Pulls CS up
- * void CE_Enable (void)
- * 		-- Pulls CE up
- * void CE_Disable (void)
- * 		-- Pulls CE down
- * void nrf24_WriteReg (uint8_t Reg, uint8_t Data)
- * 		-- Sets DATA at address REG
- * void nrf24_WriteRegMulti (uint8_t Reg, uint8_t *data, int size)
- * 		-- Sets a whole bunch of sequential registers equal to an oversized DATA array
- * uint8_t nrf24_ReadReg (uint8_t Reg)
- * 		-- Returns the state of register REG
- * void nrf24_ReadReg_Multi (uint8_t Reg, uint8_t *data, int size)
- * 		-- Returns an array of register states
- * void nrfsendCmd (uint8_t cmd)
- * 		-- Send a operational command
- * void nrf24_reset(uint8_t REG)
- * 		-- Resets flags if REG = 0x07, otherwise resets the registry entirely
- * void NRF24_Init (void)
- * 		-- initializes the board, ready to receive
- * void NRF24_TxMode (uint8_t *Address, uint8_t channel)
- * 		-- Sets the transceiver to transmit to ADDRESS on rf channel CHANNEL
- * uint8_t NRF24_Transmit (uint8_t *data)
- * 		-- Transmits data
- * void NRF24_RxMode (uint8_t *Address, uint8_t channel)
- * 		-- Sets the transceiver to receive to ADDRESS on rf channel CHANNEL
- * uint8_t isDataAvailable (int pipenum)
- * 		-- Checks for non-zero on data pipe. Returns 1 if true.
- * void NRF24_Receive (uint8_t *data)
- * 		-- Grabs data from the queue and stores it in DATA
- * void NRF24_ReadAll (uint8_t *data)
- * 		-- Read all registers, store in DATA
- */
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -84,6 +45,11 @@ SPI_HandleTypeDef hspi3;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+uint8_t RxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA}; // list of data pipes available
+uint8_t RxData[32];
+uint8_t txData[32];
+uint8_t TxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA};
+uint8_t uButtonFlag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,20 +58,11 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_SPI3_Init(void);
 /* USER CODE BEGIN PFP */
-
+uint8_t userButtonActive(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-uint8_t RxAddress[] = {0x00,0xDD,0xCC,0xBB,0xAA};
-uint8_t RxData[32];
-
-
-uint8_t data[50];
-
-//uint8_t TxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA};
-//uint8_t TxData[] = "Hello World\n";
 
 /* USER CODE END 0 */
 
@@ -116,6 +73,12 @@ uint8_t data[50];
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	// set up tx data
+	char txBuf[32];
+	strcpy(txBuf,  "According to all known laws of a");
+
+	// convert to transmittable form:
+	memcpy(&txData, txBuf, 32); // done! data ready in txData
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -139,77 +102,59 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
-
   NRF24_Init();
-  /*
-  int8_t rfAddress = 6;
-  int8_t rfChannel = 0x06;
-  NRF24_RxMode(&rfAddress, rfChannel);
-  */
-
-/*
-  // test print:
-  uint8_t testprint[4] = {0x04, 0x08, 0xa2, 0xff};
-  HAL_UART_Transmit(&huart2, (int)testprint, strlen((char *)testprint), 1000);
-  // get all registry data
-  NRF24_ReadAll(data);
-  // print all data:
-  HAL_UART_Transmit(&huart2, (char)data, strlen((char *)data), 1000);*/
-  uint8_t ttdata[50]; // test - storage of entire slave registry
-  for (int i = 0; i<50; i++) // fill testtestdata with 0s
-	  ttdata[i] = 255;
+  NRF24_RxMode(RxAddress, 6); // receive on channel 6
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // push button - transmit bee movie
+	  if(userButtonActive())
+	  {
+		  // user wants to transmit
+		  // set up tx mode:
+		  NRF24_TxMode(TxAddress, 6); // transmit on channel 6
+		  HAL_Delay(1); // let SPI settle
+		  if(NRF24_Transmit(txData)) // transmit 32B msg, check if it worked
+		  {
+			  // flash the happy light: 3 quick blinks
+			  int flashCount = 3;
+			  for(int i = 0; i < (flashCount*2); i++)
+			  {
+				  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+				  HAL_Delay(150);
+			  }
+		  }
+		  // flash the sad lights: 2 long unsynced blinks
+		  else
+		  {
+			  int flashCount = 3;
+			  for(int i = 0; i < flashCount; i++)
+			  {
+			  	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+			  	  HAL_Delay(300);
+			  	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+			  	  HAL_Delay(100);
+			  }
+		  }
+		  NRF24_RxMode(RxAddress, 6); // return to Rx mode
+
+	  }
+	  // otherwise, just check for mail (Rx)
+	  if(isDataAvailable(2))
+	  {
+		  // get the data
+		  NRF24_Receive(RxData);
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // toggle the LED
+	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-	  NRF24_ReadAll(&ttdata);
-	  // print all data:
-	 // HAL_UART_Transmit(&huart2, (char)ttdata, strlen((char *)ttdata), 1000);
-	  if (isDataAvailable(2) == 1)
-	  {
-		  NRF24_Receive(RxData);
-		 // HAL_UART_Transmit(&huart2, RxData, strlen((char *)RxData), 1000);
-	  }/*
-	  if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)) // read button
-	  {
-		  // turn on LED
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // turn LD2 on
-		  // transmit hello world on channel 10:
-		  char hworldChar[] = {'H','E','L','L','O',' ','W','O','R','L','D'};
-		  uint8_t hworldUint[11];
-		  for(int i = 0; i < 1; i++)
-		  		  hworldUint[i] = (uint8_t)hworldChar[i];
-		  hworldUint[11] = 0;
-		  NRF24_TxMode(&rfAddress, rfChannel);
-		  NRF24_Transmit(&hworldUint);
-		  // leave LED on for more second
-		  HAL_Delay(1000);
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // turn LD2 off
-		  HAL_Delay(1000);
-	 // }*/
-
-
-/*
-	  // broadcast hello world
-	  NRF24_TxMode (&rfAddress, rfChannel);
-
-	  uint8_t hworldUint[12];
-	  NRF24_ReadAll(&ttdata); // this warning can be ignored. Enough said.
-
-	  NRF24_ReadAll(&ttdata);
-	  HAL_Delay(1000);*/
-//	  if (NRF24_Transmit(TxData) == 1)
-//	  {
-//		  HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
-//	  }
-//
-//	  HAL_Delay(1000);
+	  HAL_Delay(20); // cycle 50 times a second MAX
   }
   /* USER CODE END 3 */
 }
@@ -363,7 +308,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+uint8_t userButtonActive()
+{
+	uint8_t state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13); // Read the button
+	if(state != uButtonFlag)
+	{
+		uButtonFlag = state;
+		if(uButtonFlag != 0)
+			return(1);
+	}
+	return(0);
+}
 /* USER CODE END 4 */
 
 /**
@@ -377,6 +332,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); // IF ERRORS, turn on the LED
   }
   /* USER CODE END Error_Handler_Debug */
 }
