@@ -1,18 +1,41 @@
-/* NRF24L01.h License Information:
- *
- * Copyright (C) 2017 ControllersTech.com
- * This is a free software under the GNU license, you can redistribute it and/or modify it under the terms
- * of the GNU General Public License version 3 as published by the Free Software Foundation.
- * This software library is shared with public for educational purposes, without WARRANTY and Author is not liable for any damages caused directly
- * or indirectly by this software, read more about this on the GNU General Public License.
- *
- * Modified by Stephen North, issuing under GPL v3
- */
+/*
+  ***************************************************************************************************************
+  ***************************************************************************************************************
+  ***************************************************************************************************************
+
+  File:		  NRF24L01.h
+  Author:     ControllersTech.com
+  Updated:    30th APRIL 2021
+
+  ***************************************************************************************************************
+  Copyright (C) 2017 ControllersTech.com
+
+  This is a free software under the GNU license, you can redistribute it and/or modify it under the terms
+  of the GNU General Public License version 3 as published by the Free Software Foundation.
+  This software library is shared with public for educational purposes, without WARRANTY and Author is not liable for any damages caused directly
+  or indirectly by this software, read more about this on the GNU General Public License.
+
+  ***************************************************************************************************************
+*/
+#include <stdio.h>
 
 #ifndef INC_NRF24L01_H_
 #define INC_NRF24L01_H_
 
-// Register address shortcuts
+
+
+void NRF24_Init (void);
+
+void NRF24_TxMode (uint8_t *Address, uint8_t channel);
+uint8_t NRF24_Transmit (uint8_t *data);
+
+void NRF24_RxMode (uint8_t *Address, uint8_t channel);
+uint8_t isDataAvailable (int pipenum);
+void NRF24_Receive (uint8_t *data);
+
+void NRF24_ReadAll (uint8_t *data);
+
+/* Memory Map */
 #define CONFIG      0x00
 #define EN_AA       0x01
 #define EN_RXADDR   0x02
@@ -40,7 +63,7 @@
 #define DYNPD	    0x1C
 #define FEATURE	    0x1D
 
-// SPI command shortcuts
+/* Instruction Mnemonics */
 #define R_REGISTER    0x00
 #define W_REGISTER    0x20
 #define REGISTER_MASK 0x1F
@@ -54,16 +77,5 @@
 #define REUSE_TX_PL   0xE3
 #define NOP           0xFF
 
-// Function Prototypes:
-void NRF24_Init (void);
-
-void NRF24_TxMode (uint8_t *Address, uint8_t channel);
-uint8_t NRF24_Transmit (uint8_t *data);
-
-void NRF24_RxMode (uint8_t *Address, uint8_t channel);
-uint8_t isDataAvailable (int pipenum);
-void NRF24_Receive (uint8_t *data);
-
-void NRF24_ReadAll (uint8_t *data);
 
 #endif /* INC_NRF24L01_H_ */
