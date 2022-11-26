@@ -20,154 +20,100 @@ class Ui_main_window(object):
         self.centralwidget.setObjectName("centralwidget")
 
         #create and position "ARO" label in UI
-        self.ARO_label = QtWidgets.QLabel(self.centralwidget)
-        self.ARO_label.setGeometry(QtCore.QRect(10, 0, 31, 31))
-        self.ARO_label.setObjectName("ARO_label")
+        self.ARO_label = create_label(self, 10, 0, 31, 31, "ARO", "ARO_Label")
 
         #create and position "MCC" Label in UI
-        self.MCC_label = QtWidgets.QLabel(self.centralwidget)
-        self.MCC_label.setGeometry(QtCore.QRect(420, 10, 31, 20))
-        self.MCC_label.setObjectName("MCC_Label")
+        self.MCC_label = create_label(self, 420, 10, 31, 20, "MCC", "MCC_Label")
 
 
         #COMMAND 1 WIDGETS:
         #-----------------------------------------------------------------------------
         #create and position "Command 1" Label in UI
-        self.command1_label = QtWidgets.QLabel(self.centralwidget)
-        self.command1_label.setGeometry(QtCore.QRect(10, 30, 91, 16))
-        self.command1_label.setObjectName("command1_label")
+        self.cmd1_label = create_label(self, 10, 30, 91, 16, "Command 1", "cmd1_label")
 
         #create plain text input box under Command 1 label
-        self.command_plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.command_plainTextEdit.setGeometry(QtCore.QRect(10, 230, 261, 31))
-        self.command_plainTextEdit.setObjectName("plainTextEdit")
+        self.cmd1_plainTextEdit = create_plain_text_edit(self, 10, 230, 261, 31, "cmd1_plainTextEdit")
 
         #create and position Command 1 "Run" checkbox in UI
-        self.command1_checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.command1_checkBox.setGeometry(QtCore.QRect(90, 30, 81, 20))
-        self.command1_checkBox.setObjectName("command1_checkBox")
+        self.cmd1_checkBox = create_checkBox(self, 90, 30, 81, 20, "Run", "cmd1_checkbox")
 
         #create and position command 1 progress bar 
-        self.cmd1_progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.cmd1_progressBar.setGeometry(QtCore.QRect(280, 50, 118, 31))
-        self.cmd1_progressBar.setProperty("value", 24)
-        self.cmd1_progressBar.setObjectName("cmd1_progressBar")
+        self.cmd1_progressBar = create_progressBar(self, 280, 50, 118, 31, "cmd3_progressBar")
         #------------------------------------------------------------------------------
 
 
         #COMMAND 2 WIDGETS:
         #------------------------------------------------------------------------------
         #create and position "Command 2" label in UI
-        self.command2_label = QtWidgets.QLabel(self.centralwidget)
-        self.command2_label.setGeometry(QtCore.QRect(10, 90, 91, 16))
-        self.command2_label.setObjectName("command2_label")
+        self.cmd2_label = create_label(self, 10, 90, 91, 16, "Command 2", "cmd2_label")
 
         #create plain text input box under Command 2 label
-        self.command_plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.command_plainTextEdit_2.setGeometry(QtCore.QRect(10, 170, 261, 31))
-        self.command_plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.cmd2_plainTextEdit = create_plain_text_edit(self, 10, 170, 261, 31, "cmd2_plainTextEdit")
 
         #create and position Command 2 "Run" checkbox in UI
-        self.command2_checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.command2_checkBox.setGeometry(QtCore.QRect(90, 90, 81, 20))
-        self.command2_checkBox.setObjectName("command2_checkBox")
+        self.cmd2_checkBox = create_checkBox(self, 90, 90, 81, 20, "Run", "cmd2_checkBox")
 
         #create and position command 2 progress bar 
-        self.cmd2_progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.cmd2_progressBar.setGeometry(QtCore.QRect(280, 110, 118, 31))
-        self.cmd2_progressBar.setProperty("value", 24)
-        self.cmd2_progressBar.setObjectName("cmd2_progressBar")
+        self.cmd2_progressBar = create_progressBar(self, 280, 110, 118, 31, "cmd2_progressBar")
         #------------------------------------------------------------------------------
 
 
         #COMMAND 3 WIDGETS:
         #------------------------------------------------------------------------------
         #create and position "Command 3" Label in UI
-        self.command3_label = QtWidgets.QLabel(self.centralwidget)
-        self.command3_label.setGeometry(QtCore.QRect(10, 150, 91, 16))
-        self.command3_label.setObjectName("command3_label")
+        self.cmd3_label = create_label(self, 10, 150, 91, 16, "Command 3", "cmd3_label")
 
         #create plain text input box under Command 3 label
-        self.command_plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.command_plainTextEdit_3.setGeometry(QtCore.QRect(10, 110, 261, 31))
-        self.command_plainTextEdit_3.setObjectName("plainTextEdit_3")
+        self.cmd3_plainTextEdit = create_plain_text_edit(self, 10, 110, 261, 31, "cmd3_plainTextEdit")
 
         #create and position Command 3 "Run" checkbox in UI
-        self.command3_checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.command3_checkBox.setGeometry(QtCore.QRect(90, 150, 81, 20))
-        self.command3_checkBox.setObjectName("command3_checkBox")
+        self.cmd3_checkBox = create_checkBox(self, 90, 150, 81, 20, "Run", "cmd3_checkBox")
 
         #create and position command 3 progress bar 
-        self.cmd3_progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.cmd3_progressBar.setGeometry(QtCore.QRect(280, 170, 118, 31))
-        self.cmd3_progressBar.setProperty("value", 24)
-        self.cmd3_progressBar.setObjectName("cmd3_progressBar")
+        self.cmd3_progressBar = create_progressBar(self, 280, 170, 118, 31, "cmd3_progressBar")
         #------------------------------------------------------------------------------
 
 
         #COMMAND 4 WIDGETS:
         #------------------------------------------------------------------------------
         #create and position "Command 4" Label in UI
-        self.command4_label = QtWidgets.QLabel(self.centralwidget)
-        self.command4_label.setGeometry(QtCore.QRect(10, 210, 91, 16))
-        self.command4_label.setObjectName("command4_label")
+        self.cmd4_label = create_label(self, 10, 210, 91, 16, "Command 4", "cmd4_label")
 
         #create plain text input box under Command 4 label
-        self.command_plainTextEdit_4 = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.command_plainTextEdit_4.setGeometry(QtCore.QRect(10, 50, 261, 31))
-        self.command_plainTextEdit_4.setObjectName("plainTextEdit_4")
+        self.cmd4_plainTextEdit = create_plain_text_edit(self, 10, 50, 261, 31, "plainTextEdit_4")
 
         #create and position Command 4 "Run" checkbox in UI
-        self.command4_checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.command4_checkBox.setGeometry(QtCore.QRect(90, 210, 81, 20))
-        self.command4_checkBox.setObjectName("command4_checkBox")
+        self.cmd4_checkBox = create_checkBox(self, 90, 210, 81, 20, "Run", "cmd4_checkBox")
 
         #create and position command 4 progress bar 
-        self.cmd4_progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.cmd4_progressBar.setGeometry(QtCore.QRect(280, 230, 118, 31))
-        self.cmd4_progressBar.setProperty("value", 24)
-        self.cmd4_progressBar.setObjectName("cmd4_progressBar")
+        self.cmd4_progressBar = create_progressBar(self, 280, 230, 118, 31, "cmd4_progressBar")
         #------------------------------------------------------------------------------
 
 
         #PASSWORD I/O WIDGETS
         #------------------------------------------------------------------------------
         #create and position "PASSWORD" label
-        self.password_label = QtWidgets.QLabel(self.centralwidget)
-        self.password_label.setGeometry(QtCore.QRect(10, 280, 91, 16))
-        self.password_label.setObjectName("password_label")
+        self.password_label = create_label(self, 10, 280, 91, 16, "PASSWORD:", "password_label")
 
         #create and position password plain text input
-        self.password_plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.password_plainTextEdit.setGeometry(QtCore.QRect(10, 300, 261, 31))
-        self.password_plainTextEdit.setObjectName("password_input")
+        self.password_plainTextEdit = create_plain_text_edit(self, 10, 300, 261, 31, "password_input")
 
         #create and position password authentication visual (ARO)
-        self.graphicsView_3 = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView_3.setGeometry(QtCore.QRect(420, 50, 361, 231))
-        self.graphicsView_3.setObjectName("graphicsView_3")
+        self.password_graphicsView = create_graphicsView(self, 420, 50, 361, 231, "password_graphicsView")
 
         #create and position password submit push button
-        self.pass_pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pass_pushButton.setGeometry(QtCore.QRect(100, 340, 93, 28))
-        self.pass_pushButton.setObjectName("pass_pushButton")
+        self.pass_pushButton = create_pushButton(self, 100, 340, 93, 28, "SUBMIT", "pass_pushButton")
         #------------------------------------------------------------------------------
 
 
         #position horizontal line under command password input
-        self.horiz_line = QtWidgets.QFrame(self.centralwidget)
-        self.horiz_line.setGeometry(QtCore.QRect(0, 370, 401, 20))
-        self.horiz_line.setFrameShape(QtWidgets.QFrame.HLine)
-        self.horiz_line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.horiz_line.setObjectName("line")
+        self.horiz_line = create_horizLine(self, 0, 370, 401, 20, "line")
 
 
         #COMMAND HISTORY AND SERIAL OUTPUT WIDGETS
         #------------------------------------------------------------------------------
         #create and position "Command History" label for scroll area
-        self.cmd_history_label = QtWidgets.QLabel(self.centralwidget)
-        self.cmd_history_label.setGeometry(QtCore.QRect(10, 380, 111, 16))
-        self.cmd_history_label.setObjectName("cmd_history_label")
+        self.cmd_history_label = create_label(self, 10, 380, 111, 16, "Command History", "cmd_history_label")
 
         #create and position Command history scroll area and scroll bar
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
@@ -184,11 +130,9 @@ class Ui_main_window(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         #create and position "Serial Output" label for scroll area
-        self.serial_out_label = QtWidgets.QLabel(self.centralwidget)
-        self.serial_out_label.setGeometry(QtCore.QRect(10, 460, 111, 16))
-        self.serial_out_label.setObjectName("serial_out_label")
+        self.serial_out_label = create_label(self, 10, 460, 111, 16, "Serial Output", "serial_out_label")
 
-        #create and position Serial Output scroll area
+        #create and position Serial Output scroll area 
         self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea_2.setGeometry(QtCore.QRect(10, 480, 371, 61))
         self.scrollArea_2.setWidgetResizable(True)
@@ -207,59 +151,18 @@ class Ui_main_window(object):
         #MCC SELFIE SAT AND MAP WIDGETS:
         #------------------------------------------------------------------------------
         #create and position "Sat Selfie" label (MCC)
-        self.sat_selfie_label = QtWidgets.QLabel(self.centralwidget)
-        self.sat_selfie_label.setGeometry(QtCore.QRect(570, 30, 61, 16))
-        self.sat_selfie_label.setObjectName("sat_selfie_label")
+        self.sat_selfie_label = create_label(self, 570, 30, 61, 16, "Sat Selfie", "selfie_sat_label")
 
         #create and position MCC "Selfie Sat" graphics view
-        self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView.setGeometry(QtCore.QRect(310, 300, 31, 31))
-        self.graphicsView.setObjectName("graphicsView")
+        self.selfie_graphicsView = create_graphicsView(self, 310, 300, 31, 31, "selfie_sat_graphics")
 
         #create and position "Map" label (MCC)
-        self.map_label = QtWidgets.QLabel(self.centralwidget)
-        self.map_label.setGeometry(QtCore.QRect(590, 290, 31, 16))
-        self.map_label.setObjectName("map_label")
+        self.map_label = create_label(self, 590, 290, 31, 16, "Map", "map_label")
 
         #create and position "Map" graphics view (MCC)
-        self.graphicsView_2 = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView_2.setGeometry(QtCore.QRect(420, 311, 361, 231))
-        self.graphicsView_2.setObjectName("graphicsView_2")
+        self.map_graphicsView = create_graphicsView(self, 420, 311, 361, 231, "map_graphicsView")
         #------------------------------------------------------------------------------
         
-        self.MCC_label.raise_()
-        self.command1_label.raise_()
-        self.command2_label.raise_()
-        self.command3_label.raise_()
-        self.command4_label.raise_()
-        self.ARO_label.raise_()
-        self.command_plainTextEdit.raise_()
-        self.command_plainTextEdit_2.raise_()
-        self.command_plainTextEdit_3.raise_()
-        self.command_plainTextEdit_4.raise_()
-        self.command1_checkBox.raise_()
-        self.horiz_line.raise_()
-        self.command2_checkBox.raise_()
-        self.command3_checkBox.raise_()
-        self.command4_checkBox.raise_()
-        self.scrollArea.raise_()
-        self.password_plainTextEdit.raise_()
-        self.password_label.raise_()
-        self.pass_pushButton.raise_()
-        self.cmd1_progressBar.raise_()
-        self.cmd2_progressBar.raise_()
-        self.cmd3_progressBar.raise_()
-        self.cmd4_progressBar.raise_()
-        self.graphicsView.raise_()
-        self.scrollArea_2.raise_()
-        self.cmd_history_label.raise_()
-        self.serial_out_label.raise_()
-        self.graphicsView_2.raise_()
-        self.map_label.raise_()
-        self.graphicsView_3.raise_()
-        self.sat_selfie_label.raise_()
-
-
         main_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(main_window)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
@@ -271,29 +174,136 @@ class Ui_main_window(object):
 
         self.retranslateUi(main_window)
         QtCore.QMetaObject.connectSlotsByName(main_window)
+    
 
     def retranslateUi(self, main_window):
         _translate = QtCore.QCoreApplication.translate
         main_window.setWindowTitle(_translate("main_window", "MainWindow"))
-        self.ARO_label.setText(_translate("main_window", "ARO"))
-        self.MCC_label.setText(_translate("main_window", "MCC"))
-        self.command1_label.setText(_translate("main_window", "Command 1"))
-        self.command2_label.setText(_translate("main_window", "Command 2"))
-        self.command3_label.setText(_translate("main_window", "Command 3"))
-        self.command4_label.setText(_translate("main_window", "Command 4"))
-        self.command1_checkBox.setText(_translate("main_window", "Run"))
-        self.command2_checkBox.setText(_translate("main_window", "Run"))
-        self.command3_checkBox.setText(_translate("main_window", "Run"))
-        self.command4_checkBox.setText(_translate("main_window", "Run"))
-        self.password_label.setText(_translate("main_window", "PASSWORD:"))
-        self.pass_pushButton.setText(_translate("main_window", "SUBMIT"))
-        self.cmd_history_label.setText(_translate("main_window", "Command History"))
-        self.serial_out_label.setText(_translate("main_window", "Serial Output"))
-        self.map_label.setText(_translate("main_window", "Map"))
-        self.sat_selfie_label.setText(_translate("main_window", "Sat Selfie "))
 
+def create_label(self,left,top,width,height,label_name,obj_name=""):
+    '''
+        breif : creates label onto main window at coordinates (left, top, width, height) with specified label name
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of label widget in pixels
+                height - int height of label widget in pixels
+                label_name - String label name (what shows up as label on GUI)
+                obj_name - String internal object name 
+        return : pyQt label object
+    '''
+    label = QtWidgets.QLabel(self.centralwidget)
+    label.setGeometry(QtCore.QRect(left,top,width,height))
+    label.setObjectName(obj_name)
+    label.setText(QtCore.QCoreApplication.translate("main_window", label_name))
+    return label
+
+def create_plain_text_edit(self,left,top,width,height,obj_name=""):
+    '''
+        breif : creates plain text input onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                obj_name - String internal object name 
+        return : pyQt plain text edit input object
+    '''
+    text_edit = QtWidgets.QPlainTextEdit(self.centralwidget)
+    text_edit.setGeometry(QtCore.QRect(left,top,width,height))
+    text_edit.setObjectName(obj_name)
+    return text_edit
+
+def create_checkBox(self,left,top,width,height,checkBox_name,obj_name=""):
+    '''
+        breif : creates check box input onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                obj_name - String internal object name 
+        return : pyQt check box input object
+    '''
+    check_box = QtWidgets.QCheckBox(self.centralwidget)
+    check_box.setGeometry(QtCore.QRect(left,top,width,height))
+    check_box.setObjectName(obj_name)
+    check_box.setText(QtCore.QCoreApplication.translate("main_window", checkBox_name))
+    return check_box
+
+def create_progressBar(self,left,top,width,height,obj_name=""):
+    '''
+        breif : creates progress bar onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                obj_name - String internal object name 
+        return : pyQt progress bar object
+    '''
+    progress_bar = QtWidgets.QProgressBar(self.centralwidget)
+    progress_bar.setGeometry(QtCore.QRect(left,top,width,height))
+    progress_bar.setProperty("value", 24)
+    progress_bar.setObjectName(obj_name)
+    return progress_bar
+
+def create_graphicsView(self,left,top,width,height,obj_name=""):
+    '''
+        breif : creates graphics output onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                obj_name - String internal object name 
+        return : pyQt graphics View object
+    '''
+    graphic = QtWidgets.QGraphicsView(self.centralwidget)
+    graphic.setGeometry(QtCore.QRect(left,top,width,height))
+    graphic.setObjectName(obj_name)
+    return graphic
+
+def create_pushButton(self,left,top,width,height,button_name,obj_name=""):
+    '''
+        breif : creates button input onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                button_name - String text presented on button
+                obj_name - String internal object name 
+        return : pyQt button input object
+    '''
+    button = QtWidgets.QPushButton(self.centralwidget)
+    button.setGeometry(QtCore.QRect(left,top,width,height))
+    button.setObjectName(obj_name)
+    button.setText(QtCore.QCoreApplication.translate("main_window", button_name))
+    return button
+
+def create_horizLine(self,left,top,width,height,obj_name=""):
+    '''
+        breif : creates horizontal line onto main window at coordinates (left, top, width, height)
+        param : 
+                left - int coordinate pixels from left side of main window
+                top - int coordinate pixels from top side of main window
+                width - int width of widget in pixels
+                height - int height of widget in pixels
+                obj_name - String internal object name 
+        return : pyQt horizontal line object
+    '''
+    horiz_line = QtWidgets.QFrame(self.centralwidget)
+    horiz_line.setGeometry(QtCore.QRect(left,top,width,height))
+    horiz_line.setFrameShape(QtWidgets.QFrame.HLine)
+    horiz_line.setFrameShadow(QtWidgets.QFrame.Sunken)
+    horiz_line.setObjectName(obj_name)
+    return horiz_line
 
 if __name__ == "__main__":
+    ''' 
+        Create main window here
+    '''
     import sys
     app = QtWidgets.QApplication(sys.argv)
     main_window = QtWidgets.QMainWindow()
