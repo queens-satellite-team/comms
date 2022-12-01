@@ -7,3 +7,4 @@ xml
 datetime
 cpython
 tkintermapview
+PyQt5
