@@ -45,6 +45,8 @@ class Ui_main_window(object):
         self.pass_input = create_line_edit(self.ARO_input_group,70,120,261,31,style.PASS_INPUT,"pass_input")
 
         self.pass_submit = create_pushButton(self.ARO_input_group,160,160,93,28,style.PASS_SUBMIT,"SUBMIT","pass_submit")
+        self.pass_submit.clicked.connect(self.submit_pressed) # calls submit_pressed when submit button is pressed
+        
         #------------------------------------------------------------------------------
 
 
@@ -110,7 +112,10 @@ class Ui_main_window(object):
         self.tab_group.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(main_window)
 
-
+    # retrieves entered data when submit button is pressed
+    def submit_pressed(self):
+        print("Command:", self.cmd_input.text())
+        print("Password:", self.pass_input.text())
 
     def retranslateUi(self, main_window):
         #create main window title
