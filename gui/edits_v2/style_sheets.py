@@ -157,3 +157,40 @@ TELEMETRY_GRAPHIC = '''QGraphicsView{
                         color: rgb(255, 255, 255);
                         background-color: rgb(26, 37, 48);
                     }'''
+                    
+IMAGE_GRAPHICS_GROUP = '''QGroupBox{
+                        font: 57 8pt \"Dubai Medium\";
+                        border-radius: 5px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(26, 37, 48);
+                        border: 2px solid rgb(231, 76, 60);
+                    }'''
+
+ARO_IMAGE_GROUP = '''QGroupBox{
+                        font: 57 8pt \"Dubai Medium\";
+                        border: 2px solid rgb(26, 37, 48);
+                        border-radius: 15px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(44, 62, 80);
+                    }'''
+
+MCC_IMAGE_GROUP = '''QGroupBox{
+                        font: 57 8pt \"Dubai Medium\";
+                        border: 2px solid rgb(26, 37, 48);
+                        border-radius: 15px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(44, 62, 80);
+                    }'''
+ARO_MAP_GRAPHICS = '''QGraphicsView{
+                        border: 2px solid rgb(44, 62, 80);
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(26, 37, 48);
+                        border-radius: 15px;
+                }'''
+
+MCC_MAP_GRAPHICS = '''QGraphicsView{
+                        border: 2px solid rgb(44, 62, 80);
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(26, 37, 48);
+                        border-radius: 15px;
+                }'''
