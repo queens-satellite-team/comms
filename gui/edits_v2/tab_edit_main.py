@@ -4,7 +4,9 @@ Run this file to execute the GUI
 '''
 from PyQt5 import QtCore, QtGui, QtWidgets
 import style_sheets as style
+import ui_backend
 import os
+
 
 class Ui_main_window(object):
     def setupUi(self, main_window):
@@ -40,12 +42,12 @@ class Ui_main_window(object):
 
         self.cmd_input = create_line_edit(self.ARO_input_group,70,50,261,31,style.CMD_INPUT,"cmd_input")
 
-        self.pass_label = create_label(self.ARO_input_group,170,100,81,16,style.PASS_LABEL,"PASSWORD","pass_label")
+        self.pass_label = create_label(self.ARO_input_group,170,100,91,16,style.PASS_LABEL,"PASSWORD","pass_label")
 
         self.pass_input = create_line_edit(self.ARO_input_group,70,120,261,31,style.PASS_INPUT,"pass_input")
 
         self.pass_submit = create_pushButton(self.ARO_input_group,160,160,93,28,style.PASS_SUBMIT,"SUBMIT","pass_submit")
-        self.pass_submit.clicked.connect(self.submit_pressed) # calls submit_pressed when submit button is pressed
+        self.pass_submit.clicked.connect(lambda: ui_backend.submit_pressed(self.cmd_input.text(), self.pass_input.text())) # calls submit_pressed when submit button is pressed
         
         #------------------------------------------------------------------------------
 
@@ -111,11 +113,6 @@ class Ui_main_window(object):
         self.retranslateUi(main_window)
         self.tab_group.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(main_window)
-
-    # retrieves entered data when submit button is pressed
-    def submit_pressed(self):
-        print("Command:", self.cmd_input.text())
-        print("Password:", self.pass_input.text())
 
     def retranslateUi(self, main_window):
         #create main window title
