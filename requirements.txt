@@ -6,5 +6,9 @@ urllib
 xml
 datetime
 cpython
-tkintermapview
 PyQt5
+folium
+io
+os
+sys
+flask
