@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>489</width>
+    <height>780</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="main_widget">
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+	background-color: rgb(26, 37, 48);
+}</string>
+   </property>
+   <widget class="QTabWidget" name="tab_group">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>451</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabBar::tab:selected {
+color: rgb(255, 255, 255);
+background-color: rgb(231, 76, 60);
+}
+
+QTabBar::tab:!selected {
+color: rgb(255,255,255);
+background-color: rgb(52, 73, 94);
+}
+
+QTabWidget:pane { /*replace icon text as pane ok....*/
+	font: 57 9pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(231, 76, 60);
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+}
+
+QTabBar::tab {
+border: 2px solid rgb(231, 76, 60);
+border-bottom-color:rgb(231, 76, 60);
+border-radius-top: 7px;
+height: 20px;
+width: 70px;
+background-color: rgb(231, 76, 60);
+}
+
+QTabWidget{
+	background-color: rgb(255,255,255);
+	font: 57 9pt &quot;Dubai Medium&quot;;
+}
+
+QTabWidget::tab-bar {
+left: 1px;
+bottom: -1px;
+background-color: rgb(255,255,255);
+}
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="ARO_tab">
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+	background-color: rgb(26, 37, 48);
+	color: rgb(255, 255, 255);
+	border: 2px;
+
+}</string>
+     </property>
+     <attribute name="title">
+      <string>ARO</string>
+     </attribute>
+     <widget class="QGroupBox" name="ARO_input_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>421</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(44, 62, 80);
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QPushButton" name="pass_submit">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>160</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	font: 57 9pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(231, 76, 60);
+	border-radius: 12.5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(231, 76, 60);
+}</string>
+       </property>
+       <property name="text">
+        <string>SUBMIT</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cmd_label">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 9pt &quot;Dubai Medium&quot;;
+color: rgb(242, 242, 242);
+background-color: rgb(44, 62, 80);</string>
+       </property>
+       <property name="text">
+        <string>COMMAND</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="pass_label">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 9pt &quot;Dubai Medium&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(44, 62, 80);</string>
+       </property>
+       <property name="text">
+        <string>PASSWORD</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="pass_input">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>120</y>
+         <width>261</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	padding-left: 5px;
+	padding-right:5px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+}</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="cmd_input">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>261</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color:rgb(26, 37, 48);
+	color: rgb(255, 255, 255);
+}</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="ARO_output">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>421</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(44, 62, 80);
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="cmd_history_label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 9pt &quot;Dubai Medium&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(44, 62, 80);</string>
+       </property>
+       <property name="text">
+        <string>COMMAND HISTORY</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="serial_ouput_label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 57 9pt &quot;Dubai Medium&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(44, 62, 80);</string>
+       </property>
+       <property name="text">
+        <string>SERIAL OUTPUT</string>
+       </property>
+      </widget>
+      <widget class="QScrollArea" name="cmd_history_scrollArea">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>381</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QScrollArea{
+	border: 2px solid rgb(44, 62, 80);
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+	border-radius: 5px;
+}</string>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="cmd_history_content">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>377</width>
+          <height>147</height>
+         </rect>
+        </property>
+        <widget class="QScrollBar" name="cmd_history_scrollBar">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>0</y>
+           <width>21</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(231, 76, 60);</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QScrollArea" name="serial_output_scrollArea">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>381</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QScrollArea{
+	border: 2px solid rgb(44, 62, 80);
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+	border-radius: 5px;
+}</string>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="serial_content">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>377</width>
+          <height>157</height>
+         </rect>
+        </property>
+        <widget class="QScrollBar" name="serial_scrollBar">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>0</y>
+           <width>21</width>
+           <height>161</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+background-color: rgb(231, 76, 60);</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="output_label">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(44, 62, 80);
+font: 57 9pt &quot;Dubai Medium&quot;;</string>
+       </property>
+       <property name="text">
+        <string>OUTPUT</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MCC_tab">
+     <attribute name="title">
+      <string>MCC</string>
+     </attribute>
+     <widget class="QGroupBox" name="sat_selfie_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>401</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(44, 62, 80);
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QGraphicsView" name="sat_graphics_view">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>361</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGraphicsView{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+}</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="map_view_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>370</y>
+        <width>401</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(44, 62, 80);
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QGraphicsView" name="map_graphics_view">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>361</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGraphicsView{
+	font: 57 8pt &quot;Dubai Medium&quot;;
+	border: 2px solid rgb(26, 37, 48);
+	border-radius: 15px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 37, 48);
+}</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>489</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
