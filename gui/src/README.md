@@ -9,7 +9,7 @@
 - Edit python files in groundstation_pyqt to edit GUI program, and/or ...
 - Edit .ui files with QtDesigner
 
-### Choose ONE of A, B or C:
+### (If you're editing UI files and want changes reflected in python do this, otherwise skip this) Choose ONE of A, B or C:
 
 #### A. To MANUALLY change .ui to .py (Recommended):
 1. Use pyuic5 tool (bundled with pyqt5 installation) and in command line type:
