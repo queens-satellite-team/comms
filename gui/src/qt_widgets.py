@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
 
 
 
@@ -99,6 +99,27 @@ def create_graphicsView(parent_widget,left,top,width,height,stylesheet="",obj_na
         graphic = QtWidgets.QGraphicsView(parent_widget)
         graphic.setGeometry(QtCore.QRect(left,top,width,height))
         graphic.setStyleSheet(stylesheet)
+        graphic.setObjectName(obj_name)
+        return graphic
+
+def create_QWebEngineView(parent_widget,left,top,width,height,data,stylesheet="",obj_name=""):
+        '''
+        brief : creates QWebEngineView output onto parent_widget at coordinates (left, top, width, height)
+        param : 
+                parent_widget - the parent widget to the current object (where this widget is placed)\n
+                left - int coordinate pixels from left side of main window\n
+                top - int coordinate pixels from top side of main window\n
+                width - int width of widget in pixels\n
+                height - int height of widget in pixels\n
+                data - byte code to display from web data \n
+                stylesheet - String style of widget\n
+                obj_name - String internal object name\n 
+        return : pyQt QWebEngineView object
+        '''
+        graphic = QtWebEngineWidgets.QWebEngineView(parent_widget)
+        graphic.setGeometry(QtCore.QRect(left,top,width,height))
+        #graphic.setStyleSheet(stylesheet)
+        graphic.setHtml(data)
         graphic.setObjectName(obj_name)
         return graphic
 

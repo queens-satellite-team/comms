@@ -2,11 +2,12 @@
 Main python file for tab_edit UI version
 Run this file to execute the GUI
 '''
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
 import style_sheets as style
 import qt_widgets as qt
 import tab_validation as tab_valid
 import ui_backend
+from map_src import create_maps
 import os
 import sys
 
@@ -43,7 +44,9 @@ class Ui_main_window(object):
 
         self.SAT_group = qt.create_groupBox(self.image_graphics_group, 20, 368, 401, 319, style.MAP_SAT_GROUP, "SAT_group")
 
-        self.MAP_graphics = qt.create_graphicsView(self.MAP_group, 20, 20, 361, 279, style.GRAPHICS, "MAP_graphics")
+        data = create_maps.create_map_io(44.2253,-76.4951,zoom=10) #set map coords here and specify zoom
+
+        self.web_view = qt.create_QWebEngineView(self.MAP_group, 20, 20, 361, 279, data,style.GRAPHICS, "MAP_graphics")
 
         self.SAT_graphics = qt.create_graphicsView(self.SAT_group, 20, 20, 361, 279, style.GRAPHICS, "SAT_graphics")
 
@@ -200,9 +203,11 @@ class Ui_main_window(object):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    application = QtWidgets.QApplication(sys.argv)
     main_window = QtWidgets.QMainWindow()
+    #starts localhost at port5000 serving html using flask
+    #app.app.run() 
     ui = Ui_main_window()
     ui.setupUi(main_window)
     main_window.show()
-    sys.exit(app.exec_())
+    sys.exit(application.exec_())
