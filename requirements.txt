@@ -1,10 +1,8 @@
 requests
 pillow
-tkinter
-json
-urllib
-xml
-datetime
 cpython
-tkintermapview
+PyQt5-sip
+PyQtWebEngine
 PyQt5
+folium
+flask
