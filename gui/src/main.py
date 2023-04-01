@@ -50,6 +50,10 @@ class Ui_main_window(object):
 
         self.SAT_graphics = qt.create_graphicsView(self.SAT_group, 20, 20, 361, 279, style.GRAPHICS, "SAT_graphics")
 
+        self.SAT_selfie = qt.create_label(self.SAT_graphics, 0, 0, 361, 279, style.GRAPHICS, "SAT_selfie")
+        self.SAT_selfie.setPixmap(QtGui.QPixmap(os.path.dirname(os.path.realpath(__file__)) + os.path.sep + '/images/satellite selfie.png'))
+        self.SAT_selfie.setScaledContents(True)
+
 # -----------------------------------------------------------------------------------------------------------------------------------------------
 
 #ARO TAB WIDGETS:
@@ -190,17 +194,17 @@ class Ui_main_window(object):
 
     def tab_switch_logic(self):
         self.password_dialog = tab_valid.PasswordDialog()
-        if self.password_dialog.exec_() != QtWidgets.QDialog.Accepted and self.tab_group.currentIndex()==0:
-            print('Tab Switch Not Accepted')
-            self.tab_group.setTabEnabled(1, False)
-        elif self.password_dialog.exec() != QtWidgets.QDialog.Accepted and self.tab_group.currentIndex()==1:
-            print('Tab Switch Not Accepted')
-            self.tab_group.setTabEnabled(0, False)
-        else: #ACCEPTED PASSWORD LOGIC
+
+        #ACCEPTED PASSWORD LOGIC
+        if self.password_dialog.exec_() == QtWidgets.QDialog.Accepted: 
             print('Tab Switch Accepted')
             self.tab_group.setTabEnabled(0, True)
             self.tab_group.setTabEnabled(1, True)
-
+            return
+        
+        #INCORRECT PASSWORD LOGIC
+        if self.tab_group.currentIndex() == 0: self.tab_group.setTabEnabled(1, False)
+        elif self.tab_group.currentIndex() == 1: self.tab_group.setTabEnabled(0, False)
 
 if __name__ == "__main__":
     application = QtWidgets.QApplication(sys.argv)
